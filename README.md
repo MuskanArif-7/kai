@@ -1,139 +1,178 @@
-# Aurora AI Chatbot — GitHub + Vercel Deployment Guide
+# KAI AI Chatbot
 
-This project is a Groq-powered chatbot with a custom animated frontend, deployed as a **permanent, free, public link** using GitHub + Vercel — no Gradio, no Hugging Face paywall.
+## Project Overview
 
----
+KAI is a web-based Large Language Model (LLM) chatbot powered by the Groq API. It has a custom animated frontend and allows users to send messages and receive AI-generated replies.
 
-## Files in this project
+The project uses HTML, CSS, and JavaScript for the frontend, while a Vercel serverless function securely communicates with the Groq API.
 
-```
+## Features
+
+- Custom animated chatbot interface
+- User message input and send button
+- Conversation history
+- AI-generated responses using Groq
+- Streaming replies
+- Secure API key handling
+- Responsive design
+- Public deployment through Vercel
+- Automatic redeployment through GitHub
+
+## Technologies Used
+
+- **Frontend:** HTML, CSS, and JavaScript
+- **Backend:** Vercel Serverless Function
+- **LLM Provider:** Groq API
+- **Hosting:** Vercel
+- **Version Control:** Git and GitHub
+
+## Project Structure
+
+```text
 vercel-chatbot/
+│
 ├── api/
-│   └── chat.js        <- Serverless function that calls Groq (keeps your API key secret)
-├── index.html          <- The chat page structure
-├── style.css            <- The aurora/glow animated design
-├── script.js            <- Handles sending messages + streaming replies
-├── package.json         <- Project metadata (no dependencies needed)
-├── .gitignore           <- Keeps node_modules and secrets out of GitHub
-└── README.md             <- This guide
+│   └── chat.js
+├── index.html
+├── style.css
+├── script.js
+├── package.json
+├── .gitignore
+└── README.md
 ```
 
-Every file is required. Don't rename any of them — Vercel looks for `api/chat.js` specifically to create your backend endpoint.
+## File Description
 
----
+- **index.html:** Contains the structure of the chatbot page.
+- **style.css:** Contains the chatbot design, layout, colors, and animations.
+- **script.js:** Handles user input, sending messages, chat history, and streamed replies.
+- **api/chat.js:** Serverless backend function that calls Groq and keeps the API key secret.
+- **package.json:** Contains project metadata.
+- **.gitignore:** Prevents secret and unnecessary files from being uploaded.
+- **README.md:** Provides project and deployment information.
 
-## Step 1: Create a GitHub account (if you don't have one)
+## How the Chatbot Works
 
-1. Go to **github.com** → **Sign up**
-2. Verify your email — free, no credit card
+1. The user enters a message in KAI.
+2. `script.js` sends the message to `/api/chat`.
+3. The Vercel serverless function receives the request.
+4. The backend calls the Groq API using the secret API key.
+5. Groq generates an AI response.
+6. The response is streamed back to the browser.
+7. KAI displays the reply in the chat window.
 
----
+## Environment Variable
 
-## Step 2: Create a new GitHub repository
+Create an environment variable named:
 
-1. Click the **+** icon (top right) → **New repository**
-2. Name it something like `aurora-ai-chatbot`
-3. Keep it **Public** or **Private** — either works with Vercel
-4. Don't add a README, .gitignore, or license here — we already have them
-5. Click **Create repository**
-
----
-
-## Step 3: Upload your files to GitHub
-
-**Easiest method (no coding tools needed):**
-
-1. On your new empty repository page, click **uploading an existing file**
-2. Drag in all the files and folders from this project:
-   - `index.html`
-   - `style.css`
-   - `script.js`
-   - `package.json`
-   - `.gitignore`
-   - `README.md`
-   - the whole `api` folder (containing `chat.js`)
-3. Scroll down, click **Commit changes**
-
-**Important:** Make sure the `api` folder structure is preserved — `chat.js` must end up at the path `api/chat.js` in your repo, not loose in the main folder.
-
----
-
-## Step 4: Import the project into Vercel
-
-1. Go to **vercel.com** → **Sign up** (choose "Continue with GitHub" — this links the two automatically)
-2. Click **Add New** → **Project**
-3. Find your `aurora-ai-chatbot` repository in the list → click **Import**
-4. Framework Preset: leave as **Other** (Vercel auto-detects the `api` folder as serverless functions)
-5. Don't click Deploy yet — go to Step 5 first
-
----
-
-## Step 5: Add your Groq API key as an Environment Variable
-
-This keeps your key secret and out of your code entirely.
-
-1. On the import screen (or later in **Project Settings → Environment Variables**):
-2. Click **Add**
-3. **Name**: `GROQ_API_KEY`
-4. **Value**: paste your Groq key (get one free at **console.groq.com/keys** if you don't have it)
-5. Environment: select **Production, Preview, and Development** (all three)
-6. Save
-
----
-
-## Step 6: Deploy
-
-1. Click **Deploy**
-2. Vercel builds your project — takes about 30–60 seconds
-3. You'll see a **"Congratulations"** screen with your live link
-
----
-
-## Step 7: Get your permanent link
-
-Your chatbot is now live at:
-
-```
-https://aurora-ai-chatbot-yourname.vercel.app
+```env
+GROQ_API_KEY=your_actual_groq_api_key
 ```
 
-(Vercel generates the exact subdomain based on your project name — it's shown right on the success screen.)
+The API key must not be written directly in frontend code or uploaded to GitHub.
 
-This link:
-- Works forever, no expiry
-- Works even when your laptop is off
-- Works on any phone, tablet, or browser
-- Has no Gradio/Docker paywall or ZeroGPU quota — completely free
-- Automatically redeploys every time you push a change to GitHub
+## Local Setup
 
----
+### 1. Download or Clone the Repository
 
-## How it works (in plain terms)
+Open the project folder in Visual Studio Code.
 
-- **`index.html` + `style.css` + `script.js`** run entirely in the visitor's browser — this is your chat interface, with the aurora glow animation
-- When someone sends a message, `script.js` sends it to `/api/chat`
-- **`api/chat.js`** runs on Vercel's servers (not the visitor's browser), calls Groq using your secret key, and streams the reply back word-by-word
-- Your `GROQ_API_KEY` never appears in the browser or in your GitHub repo — it only lives inside Vercel's Environment Variables
+### 2. Install Dependencies
 
----
+If required by the project, run:
 
-## Making changes later
+```bash
+npm install
+```
 
-Whenever you want to update the design or behavior:
+### 3. Add the API Key
 
-1. Edit the file directly on GitHub (click the file → pencil icon → edit → commit)
-2. Vercel automatically detects the change and redeploys within about a minute
-3. Refresh your live link to see the update
+Create a `.env` or `.env.local` file and add:
 
-No need to touch Vercel's dashboard again after the first setup, unless you're changing the API key.
+```env
+GROQ_API_KEY=your_actual_groq_api_key
+```
 
----
+### 4. Run the Project
 
-## Troubleshooting
+For local testing, use:
 
-| Problem | Fix |
-|---|---|
-| Blank page / 404 | Make sure `index.html` is at the root of the repo, not inside a subfolder |
-| "Error: Server misconfigured: GROQ_API_KEY not set" | Add the Environment Variable in Vercel Project Settings, then redeploy |
-| Chat doesn't respond, no error shown | Open browser DevTools (F12) → Console tab, check for errors; also confirm `api/chat.js` is exactly at that path |
-| Changes on GitHub don't show up | Check the **Deployments** tab in Vercel — it should show a new build in progress; if not, confirm GitHub is properly connected under Project Settings → Git |
+```bash
+npx vercel dev
+```
+
+Then open the local URL shown in the terminal.
+
+## Deployment on Vercel
+
+1. Upload all project files to a GitHub repository.
+2. Import the repository into Vercel.
+3. Select **Other** as the framework preset if required.
+4. Open **Project Settings → Environment Variables**.
+5. Add:
+
+```text
+Name: GROQ_API_KEY
+Value: Your Groq API key
+```
+
+6. Select Production, Preview, and Development environments.
+7. Click **Deploy**.
+8. Open the generated public Vercel URL and test KAI.
+
+## Security
+
+The Groq API key is used only inside the backend serverless function. It is not exposed in frontend code.
+
+The following files and folders should not be uploaded to GitHub:
+
+```text
+.env
+.env.local
+node_modules
+.vercel
+```
+
+Never share your real Groq API key publicly.
+
+## Sample Conversation
+
+**User:** What is artificial intelligence?
+
+**KAI:** Artificial intelligence is a technology that enables computers to perform tasks that normally require human intelligence, such as understanding language, answering questions, recognizing patterns, and making predictions.
+
+## Limitations
+
+- KAI depends on the Groq API and an internet connection.
+- API rate limits may affect responses.
+- The model may generate incorrect or incomplete information.
+- Conversations are not permanently stored unless a database is added.
+- KAI should not replace professional advice.
+
+## Future Improvements
+
+- Add a clear-chat button
+- Add dark and light themes
+- Add multilingual responses
+- Add voice input and text-to-speech
+- Add user authentication
+- Save conversations in a database
+- Add better error messages
+- Add Retrieval-Augmented Generation (RAG)
+- Add custom knowledge from uploaded documents
+
+## Assignment Deliverables
+
+- **Live Vercel URL:** Add your deployed KAI URL here.
+- **GitHub Repository URL:** Add your GitHub repository URL here.
+- **Sample Conversation Screenshot:** Add a screenshot of the working chatbot here.
+
+## Author
+
+**Name:** Muskan Arif  
+**Project:** KAI AI Chatbot  
+**Course:** Software Engineering
+
+## Disclaimer
+
+This project is created for educational purposes. KAI generates responses using an AI language model, and its answers should be checked before being used for important decisions.
