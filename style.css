@@ -1,4 +1,4 @@
- {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -49,11 +49,12 @@ body {
 
 .chatbot-header h2 {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .chatbot-header p {
     font-size: 12px;
+    font-weight: 700;
     color: #ead8c0;
 }
 
@@ -72,6 +73,7 @@ body {
 
     border-radius: 50%;
     font-size: 20px;
+    font-weight: 700;
 }
 
 /* ================================
@@ -120,6 +122,7 @@ body {
 
     font-size: 14px;
     line-height: 1.5;
+    font-weight: 700;
 
     border-radius: 16px;
 }
@@ -144,6 +147,82 @@ body {
     color: #fffaf2;
 
     border-bottom-right-radius: 4px;
+}
+
+/* ================================
+   AI RESPONSE FORMATTING
+   ================================ */
+
+/* Main headings */
+
+.message h1,
+.message h2,
+.message h3,
+.message h4 {
+    margin-top: 10px;
+    margin-bottom: 8px;
+
+    font-weight: 700;
+    color: #3e2723;
+    line-height: 1.3;
+}
+
+/* First heading */
+
+.message h1:first-child,
+.message h2:first-child,
+.message h3:first-child {
+    margin-top: 0;
+}
+
+/* Heading sizes */
+
+.message h1 {
+    font-size: 20px;
+}
+
+.message h2 {
+    font-size: 18px;
+}
+
+.message h3 {
+    font-size: 16px;
+}
+
+.message h4 {
+    font-size: 15px;
+}
+
+/* Bold important text */
+
+.message strong,
+.message b {
+    font-weight: 700;
+    color: #3e2723;
+}
+
+/* Key point lists */
+
+.message ul,
+.message ol {
+    margin: 8px 0 8px 20px;
+    padding-left: 10px;
+}
+
+.message li {
+    margin-bottom: 6px;
+    padding-left: 3px;
+    font-weight: 700;
+}
+
+/* Paragraph spacing */
+
+.message p {
+    margin-bottom: 8px;
+}
+
+.message p:last-child {
+    margin-bottom: 0;
 }
 
 /* ================================
@@ -223,12 +302,14 @@ body {
     outline: none;
 
     font-size: 14px;
+    font-weight: 700;
 
     transition: 0.3s;
 }
 
 .chat-input input::placeholder {
     color: #9a7b68;
+    font-weight: 700;
 }
 
 .chat-input input:focus {
@@ -252,6 +333,7 @@ body {
     cursor: pointer;
 
     font-size: 18px;
+    font-weight: 700;
 
     transition: 0.3s;
 }
@@ -291,6 +373,7 @@ body {
     cursor: pointer;
 
     font-size: 12px;
+    font-weight: 700;
 
     transition: 0.3s;
 }
@@ -311,6 +394,7 @@ body {
     gap: 6px;
 
     font-size: 12px;
+    font-weight: 700;
     color: #ead8c0;
 }
 
@@ -342,4 +426,3 @@ body {
         border-radius: 0;
     }
 }
-
