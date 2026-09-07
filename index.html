@@ -1,440 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KAI - AI Assistant</title>
+    <title>KAI - AI Chatbot</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="app">
+    <div class="chatbot">
 
-        <!-- =========================
-             SIDEBAR
-        ========================== -->
+        <!-- Header -->
+        <header class="header">
 
-        <aside class="sidebar">
-
-            <div class="brand">
-                <div class="brand-logo">K</div>
-
-                <div class="brand-text">
-                    <h2>KAI</h2>
-                    <span>AI Assistant</span>
-                </div>
+            <div class="logo">
+                K
             </div>
 
-
-            <!-- New Chat -->
-
-            <button class="new-chat">
-                <span>＋</span>
-                New conversation
-            </button>
-
-
-            <!-- Navigation -->
-
-            <nav class="navigation">
-
-                <p class="nav-title">MENU</p>
-
-                <a href="#" class="nav-item active">
-                    <span>⌂</span>
-                    Chat
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>◷</span>
-                    Recent chats
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>☆</span>
-                    Saved
-                </a>
-
-            </nav>
-
-
-            <!-- Recent conversations -->
-
-            <div class="recent">
-
-                <p class="nav-title">RECENT</p>
-
-                <div class="chat-history">
-                    <span>💬</span>
-                    Getting started with KAI
-                </div>
-
-                <div class="chat-history">
-                    <span>💬</span>
-                    Project ideas
-                </div>
-
-                <div class="chat-history">
-                    <span>💬</span>
-                    Web development
-                </div>
-
+            <div class="header-text">
+                <h1>KAI</h1>
+                <p>Your AI Assistant</p>
             </div>
 
-
-            <!-- Sidebar bottom -->
-
-            <div class="sidebar-bottom">
-
-                <div class="user-profile">
-
-                    <div class="user-avatar">
-                        A
-                    </div>
-
-                    <div>
-                        <strong>My Account</strong>
-                        <small>Free Plan</small>
-                    </div>
-
-                    <span class="settings">⚙</span>
-
-                </div>
-
+            <div class="online">
+                <span></span>
+                Online
             </div>
 
-        </aside>
+        </header>
 
 
-        <!-- =========================
-             MAIN CONTENT
-        ========================== -->
+        <!-- Chat Area -->
+        <main class="chat-area" id="chatArea">
 
-        <main class="main">
+            <!-- Welcome -->
+            <div class="welcome">
 
-            <!-- Header -->
-
-            <header class="topbar">
-
-                <div class="mobile-brand">
-                    <div class="brand-logo">K</div>
-                    <strong>KAI</strong>
+                <div class="welcome-icon">
+                    ✦
                 </div>
 
-                <div class="assistant-info">
-
-                    <div class="status-dot"></div>
-
-                    <div>
-                        <h3>KAI</h3>
-                        <span>Online • Ready to help</span>
-                    </div>
-
-                </div>
-
-                <button class="more-btn">
-                    ⋮
-                </button>
-
-            </header>
-
-
-            <!-- =========================
-                 CHAT AREA
-            ========================== -->
-
-            <section class="chat-area" id="chatArea">
-
-
-                <!-- Welcome Screen -->
-
-                <div class="welcome" id="welcome">
-
-                    <div class="welcome-logo">
-                        K
-                    </div>
-
-                    <h1>Hello, I'm KAI.</h1>
-
-                    <p>
-                        Your intelligent AI assistant.
-                        Ask me anything or choose a suggestion below.
-                    </p>
-
-
-                    <!-- Suggestions -->
-
-                    <div class="suggestions">
-
-                        <button class="suggestion">
-                            <span>✦</span>
-
-                            <div>
-                                <strong>Give me ideas</strong>
-                                <small>Help me brainstorm something creative</small>
-                            </div>
-
-                        </button>
-
-
-                        <button class="suggestion">
-                            <span>⌨</span>
-
-                            <div>
-                                <strong>Help me code</strong>
-                                <small>Explain or write some code</small>
-                            </div>
-
-                        </button>
-
-
-                        <button class="suggestion">
-                            <span>✎</span>
-
-                            <div>
-                                <strong>Write something</strong>
-                                <small>Create or improve my content</small>
-                            </div>
-
-                        </button>
-
-
-                        <button class="suggestion">
-                            <span>?</span>
-
-                            <div>
-                                <strong>Answer a question</strong>
-                                <small>Explain something clearly</small>
-                            </div>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Messages -->
-
-                <div class="messages" id="messages">
-
-                    <!-- Example Bot Message -->
-
-                    <div class="message bot">
-
-                        <div class="message-avatar">
-                            K
-                        </div>
-
-                        <div class="message-content">
-
-                            <div class="message-name">
-                                KAI
-                            </div>
-
-                            <p>
-                                Hello! I'm KAI. How can I help you today?
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Example User Message -->
-
-                    <div class="message user">
-
-                        <div class="message-content">
-
-                            <div class="message-name">
-                                You
-                            </div>
-
-                            <p>
-                                Tell me what you can do.
-                            </p>
-
-                        </div>
-
-                        <div class="message-avatar user-icon">
-                            A
-                        </div>
-
-                    </div>
-
-
-                    <!-- Example Bot Response -->
-
-                    <div class="message bot">
-
-                        <div class="message-avatar">
-                            K
-                        </div>
-
-                        <div class="message-content">
-
-                            <div class="message-name">
-                                KAI
-                            </div>
-
-                            <p>
-                                I can help you write, learn, brainstorm,
-                                code, analyze information and much more.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 INPUT SECTION
-            ========================== -->
-
-            <div class="input-section">
-
-                <form class="input-wrapper" id="chatForm">
-
-                    <button
-                        type="button"
-                        class="attach-btn"
-                        title="Attach file">
-                        ＋
-                    </button>
-
-
-                    <input
-                        type="text"
-                        id="messageInput"
-                        placeholder="Message KAI..."
-                        autocomplete="off"
-                    >
-
-
-                    <button
-                        type="button"
-                        class="mic-btn"
-                        title="Voice input">
-                        ♫
-                    </button>
-
-
-                    <button
-                        type="submit"
-                        class="send-btn"
-                        id="sendBtn"
-                        title="Send message">
-                        ↑
-                    </button>
-
-                </form>
-
-
-                <p class="disclaimer">
-                    KAI can make mistakes. Check important information.
+                <h2>Hi, I'm KAI</h2>
+
+                <p>
+                    Your simple and intelligent AI assistant.
+                    What can I help you with today?
                 </p>
+
+            </div>
+
+
+            <!-- Bot Message -->
+            <div class="message bot">
+
+                <div class="avatar">
+                    K
+                </div>
+
+                <div class="bubble">
+                    Hello! 👋
+                    <br>
+                    I'm KAI. Ask me anything.
+                </div>
+
+            </div>
+
+
+            <!-- User Message -->
+            <div class="message user">
+
+                <div class="bubble">
+                    Hello KAI!
+                </div>
 
             </div>
 
         </main>
 
+
+        <!-- Quick Questions -->
+        <div class="quick-buttons">
+
+            <button onclick="sendQuickMessage('Tell me an interesting fact')">
+                Interesting fact
+            </button>
+
+            <button onclick="sendQuickMessage('Help me with coding')">
+                Help with coding
+            </button>
+
+            <button onclick="sendQuickMessage('Give me an idea')">
+                Give me an idea
+            </button>
+
+        </div>
+
+
+        <!-- Input -->
+        <form class="input-area" id="chatForm">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Ask KAI anything..."
+                autocomplete="off"
+            >
+
+            <button type="submit" class="send-button">
+                ↑
+            </button>
+
+        </form>
+
+
+        <!-- Footer -->
+        <p class="footer">
+            KAI may occasionally make mistakes. Please verify important information.
+        </p>
+
     </div>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
+    <!-- Simple JavaScript -->
     <script>
 
         const form = document.getElementById("chatForm");
         const input = document.getElementById("messageInput");
-        const messages = document.getElementById("messages");
-        const welcome = document.getElementById("welcome");
-
-        const suggestions =
-            document.querySelectorAll(".suggestion");
+        const chatArea = document.getElementById("chatArea");
 
 
-        // --------------------------------
+        // Send message
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const message = input.value.trim();
+
+            if (message === "") {
+                return;
+            }
+
+            addMessage(message, "user");
+
+            input.value = "";
+
+            setTimeout(function() {
+
+                addMessage(
+                    getResponse(message),
+                    "bot"
+                );
+
+            }, 600);
+
+        });
+
+
         // Add message
-        // --------------------------------
-
-        function addMessage(text, sender) {
+        function addMessage(text, type) {
 
             const message = document.createElement("div");
 
             message.classList.add(
                 "message",
-                sender
+                type
             );
 
 
-            if (sender === "bot") {
+            if (type === "bot") {
 
                 message.innerHTML = `
-                    <div class="message-avatar">
-                        K
-                    </div>
+                    <div class="avatar">K</div>
 
-                    <div class="message-content">
-
-                        <div class="message-name">
-                            KAI
-                        </div>
-
-                        <p>${text}</p>
-
+                    <div class="bubble">
+                        ${text}
                     </div>
                 `;
 
             } else {
 
                 message.innerHTML = `
-                    <div class="message-content">
-
-                        <div class="message-name">
-                            You
-                        </div>
-
-                        <p>${text}</p>
-
-                    </div>
-
-                    <div class="message-avatar user-icon">
-                        A
+                    <div class="bubble">
+                        ${text}
                     </div>
                 `;
 
             }
 
 
-            messages.appendChild(message);
+            chatArea.appendChild(message);
 
-
-            // Scroll to bottom
-
-            messages.scrollTop =
-                messages.scrollHeight;
+            chatArea.scrollTop =
+                chatArea.scrollHeight;
         }
 
 
-        // --------------------------------
-        // Bot response
-        // --------------------------------
+        // Quick buttons
+        function sendQuickMessage(text) {
 
-        function getBotResponse(text) {
+            addMessage(text, "user");
 
-            const message =
-                text.toLowerCase();
+            setTimeout(function() {
+
+                addMessage(
+                    getResponse(text),
+                    "bot"
+                );
+
+            }, 600);
+
+        }
+
+
+        // Simple responses
+        function getResponse(message) {
+
+            message = message.toLowerCase();
 
 
             if (
@@ -442,154 +228,45 @@
                 message.includes("hi")
             ) {
 
-                return "Hello! 👋 It's great to have you here. What would you like to work on?";
+                return "Hello! 👋 Nice to meet you.";
 
             }
 
 
             if (
-                message.includes("code") ||
-                message.includes("coding")
+                message.includes("coding") ||
+                message.includes("code")
             ) {
 
-                return "Absolutely! I can help you with HTML, CSS, JavaScript and many other programming tasks.";
+                return "Sure! 💻 Tell me what you are trying to build and I'll help you.";
 
             }
 
 
             if (
-                message.includes("idea") ||
-                message.includes("ideas")
+                message.includes("idea")
             ) {
 
-                return "I'd love to brainstorm with you. Tell me what you're working on and I'll suggest some ideas.";
+                return "Here's an idea: build a personal productivity dashboard with tasks, notes and an AI assistant.";
 
             }
 
 
             if (
-                message.includes("who are you") ||
-                message.includes("what are you")
+                message.includes("fact")
             ) {
 
-                return "I'm KAI, your AI assistant. I'm designed to help you learn, create, solve problems and get things done.";
+                return "Did you know? Honey never spoils. Archaeologists have found edible honey in ancient Egyptian tombs.";
 
             }
 
 
-            return "That's interesting! Tell me a little more and I'll do my best to help you.";
+            return "That's interesting! Tell me more and I'll try my best to help. 😊";
+
         }
-
-
-        // --------------------------------
-        // Send message
-        // --------------------------------
-
-        form.addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-
-                const text =
-                    input.value.trim();
-
-
-                if (!text) {
-                    return;
-                }
-
-
-                // Hide welcome screen
-
-                welcome.style.display =
-                    "none";
-
-
-                // Add user message
-
-                addMessage(
-                    text,
-                    "user"
-                );
-
-
-                // Clear input
-
-                input.value = "";
-
-
-                // Bot typing delay
-
-                setTimeout(function() {
-
-                    const response =
-                        getBotResponse(text);
-
-
-                    addMessage(
-                        response,
-                        "bot"
-                    );
-
-                }, 700);
-
-            }
-        );
-
-
-        // --------------------------------
-        // Suggestions
-        // --------------------------------
-
-        suggestions.forEach(
-            function(button) {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        const text =
-                            button
-                            .querySelector("strong")
-                            .textContent;
-
-                        input.value =
-                            text;
-
-                        input.focus();
-
-                    }
-                );
-
-            }
-        );
-
-
-        // --------------------------------
-        // Enter key
-        // --------------------------------
-
-        input.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key === "Enter" &&
-                    !event.shiftKey
-                ) {
-
-                    event.preventDefault();
-
-                    form.requestSubmit();
-
-                }
-
-            }
-        );
 
     </script>
 
 </body>
+
 </html>
